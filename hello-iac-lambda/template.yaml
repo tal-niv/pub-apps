@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Hello World Lambda function with public Function URL
+
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: HelloWorldFunction
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.11
+      CodeUri: .
+      MemorySize: 128
+      Timeout: 10
+      FunctionUrlConfig:
+        AuthType: NONE
+        Cors:
+          AllowOrigins:
+            - "*"
+          AllowMethods:
+            - GET
+          AllowHeaders:
+            - "*"
+
+Outputs:
+  HelloWorldFunctionUrl:
+    Description: "Function URL for Hello World Lambda"
+    Value: !GetAtt HelloWorldFunctionUrl.FunctionUrl
+  HelloWorldFunction:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt HelloWorldFunction.Arn

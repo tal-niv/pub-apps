@@ -1,0 +1,2 @@
+# No external dependencies required for this simple Hello World function
+# Add any Python packages here if needed in the future
