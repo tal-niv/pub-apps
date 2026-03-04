@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- Language Selection Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="#F5F5F5"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btnSourceLanguage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="English"
+            android:textAllCaps="false"
+            android:backgroundTint="#4285F4"
+            android:textColor="#FFFFFF"
+            style="@style/Widget.Material3.Button"/>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@android:drawable/ic_menu_sort"
+            android:rotation="90"
+            android:contentDescription="Swap languages" />
+
+        <Button
+            android:id="@+id/btnTargetLanguage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Morse"
+            android:textAllCaps="false"
+            android:backgroundTint="#34A853"
+            android:textColor="#FFFFFF"
+            style="@style/Widget.Material3.Button"/>
+
+    </LinearLayout>
+
+    <!-- Input Section -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="16dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tvInputLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:textSize="12sp"
+                android:textColor="#666666"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <!-- Morse Input Buttons (visible when Morse is input) -->
+                <LinearLayout
+                    android:id="@+id/morseInputButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btnDot"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:text="."
+                        android:textSize="24sp"
+                        android:layout_marginBottom="8dp"
+                        style="@style/Widget.Material3.Button.ElevatedButton"/>
+
+                    <Button
+                        android:id="@+id/btnDash"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:text="_"
+                        android:textSize="24sp"
+                        android:layout_marginBottom="8dp"
+                        style="@style/Widget.Material3.Button.ElevatedButton"/>
+
+                    <Button
+                        android:id="@+id/btnSpace"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:text="SPC"
+                        android:textSize="12sp"
+                        style="@style/Widget.Material3.Button.ElevatedButton"/>
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etInput"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="top|start"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter text"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Output Section -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="#F8F9FA">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tvOutputLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Morse"
+                android:textSize="12sp"
+                android:textColor="#666666"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvOutput"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="top|start"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:scrollbars="vertical"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Send Button -->
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:text="Send with Flashlight"
+        android:textAllCaps="false"
+        android:paddingVertical="16dp"
+        android:backgroundTint="#FBBC04"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        style="@style/Widget.Material3.Button"/>
+
+</LinearLayout>
